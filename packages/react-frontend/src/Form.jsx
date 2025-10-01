@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 
-function handleChange(event){
-    const {name,value}=event.target;
-    if(name==="job")
-        setPerson({name: person["name"],job:value});
-    else setPerson({name:value,job:person["job"]});
-}
 
-function Form() {
-  const [person, setPerson] = useState({
-    name: "",
-    job: ""
-  });
-  return(
+
+function Form(props) {
+    const [person, setPerson] = useState({
+        name: "",
+        job: ""
+    });
+
+    function handleChange(event){
+        const {name,value}=event.target;
+        if(name==="job")
+            setPerson({name: person["name"],job:value});
+        else setPerson({name:value,job:person["job"]});
+    }
+    
+    function submitForm(){
+        props.handleSubmit(person);
+        setPerson({name: "", job:""});
+    }
+    return(
     <form>
         <label htmlFor="name">Name</label>
         <input
@@ -31,6 +38,8 @@ function Form() {
         value={person.job}
         onChange={handleChange}
         />
+
+        <input type="button" value="submit" onClick={submitForm}/>
     </form>
 
   );

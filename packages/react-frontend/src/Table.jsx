@@ -30,7 +30,6 @@ function TableBody(props){
             {rows}
         </tbody>
     )
-    
 }
 
 function Table(props){
