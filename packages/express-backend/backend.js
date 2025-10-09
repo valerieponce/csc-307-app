@@ -37,9 +37,15 @@ const users = {
     }
   ]
 };
+
 function generateID(){
-  return Math.floor(100000 + Math.random() * 900000).toString();
-}
+  const letters = [...Array(3)]
+      .map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26)))
+      .join('');
+    const numbers = Math.floor(100 + Math.random() * 900);
+    return letters + numbers;
+  }
+
 const findUserByName = (name) => {
   return users["users_list"].filter(
     (user) => user["name"] === name
