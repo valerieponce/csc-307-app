@@ -1,0 +1,14 @@
+{
+  "name": "package-unit-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "module.js",
+  "scripts": {
+    "test": "npx.jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^30.2.0"
+  }
+}
